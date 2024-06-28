@@ -12,12 +12,12 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-
     private String author;
-
     private  String book_number;
     private String book_title;
+    private BookCategory category;
+
+
 
 
 }
