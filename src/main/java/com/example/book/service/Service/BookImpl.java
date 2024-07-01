@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class BookImpl {
     @Autowired
     private BookRepo repo;
 
-    private ResponseEntity<String> createBook(Book newBook){
+    public ResponseEntity<String> createBook(Book newBook){
         Book currentBook = repo.findByName(newBook.getName());
         if(currentBook == null){
         repo.save(newBook);
@@ -22,6 +25,11 @@ public class BookImpl {
         }
         return ResponseEntity.ok("Book has been inserted successfully");
 
+    }
+    public ResponseEntity<Optional<List<Book>>> getBooks(){
+        Optional<List<Book>> listOfBooks = Optional.of(repo.findAll());
+
+        return ResponseEntity.ok(listOfBooks);
     }
 
 }
