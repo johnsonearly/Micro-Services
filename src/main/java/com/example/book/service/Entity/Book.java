@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 public class Book {
@@ -14,8 +16,9 @@ public class Book {
     private int id;
     private String author;
     private  String book_number;
-    private String book_title;
+    private String name;
     private BookCategory category;
+    private BigDecimal price;
 
 
 
