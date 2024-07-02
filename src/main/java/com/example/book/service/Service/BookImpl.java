@@ -26,10 +26,10 @@ public class BookImpl {
         return ResponseEntity.ok("Book has been inserted successfully");
 
     }
-    public ResponseEntity<Optional<List<Book>>> getBooks(){
-        Optional<List<Book>> listOfBooks = Optional.of(repo.findAll());
+    public List<Book> getBooks(){
+        List<Book> listOfBooks = repo.findAll();
 
-        return ResponseEntity.ok(listOfBooks);
+        return listOfBooks;
     }
 
 }
